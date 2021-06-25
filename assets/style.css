@@ -30,19 +30,34 @@ button{
     margin-bottom: 4px;
     border-radius: 2px;
     padding: 8px 72px;
+    font-family: 'Merriweather Sans';
     
 }
 
 .current-city{
     border: solid 2px black;
     float: left;
-    width: 87%
+    width: 87%;
+    font-family: 'Merriweather Sans';
 }
 
 .five-day{
     float: left;
+    font-family: 'Merriweather Sans';
 }
 
 .five-day-list{
-border: solid 2px black;
+   
+
+display: flex;
+}
+
+.five-day-box{
+    border: solid 2px black;
+    margin-right: 18px;
+    margin-left:2px ;
+    padding: 4px;
+    color: white;
+    background-color: rgba(0, 0, 128, 0.72);
+    font-family: 'Merriweather Sans';
 }
