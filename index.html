@@ -4,15 +4,24 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/style.css" />
     <title>Weather App</title>
   </head>
   <body>
-    <h1>Weather App</h1>
+    <div class="header">
+      <h1>Weather App</h1>
+    </div>
     <div class="search">
       <h2>Search for a City:</h2>
       <input type="text" placeholder="San Diego" />
-      <button>Search</button>
+      <div class="button-list">
+      <button id = "search-button">Search</button>
       <button>Montreal</button>
       <button>Chicago</button>
       <button>Phoenix</button>
@@ -21,7 +30,9 @@
       <button>Milan</button>
       <button>Buenos Aires</button>
       <button>San Francisco</button>
+      </div>
     </div>
+    
     <div class="current-city">
       <h2>Current City Data</h2>
       <p>Temp: 74.01</p>
@@ -33,36 +44,36 @@
     <div class="five-day">
       <h3>5-Day Forecast:</h3>
       <div class="five-day-list">
-        <div class="five-day-box"> 
-            <h3>Current City Data</h3>
-            <p>Temp: 74.01</p>
-            <p>Wind: 6.67 MPH</p>
-            <p>Humidity</p>
-        </div>  
-        <div class="five-day-box"> 
-            <h3>Current City Data</h3>
-            <p>Temp: 74.01</p>
-            <p>Wind: 6.67 MPH</p>
-            <p>Humidity</p>
-        </div>  
-        <div class="five-day-box"> 
-            <h3>Current City Data</h3>
-            <p>Temp: 74.01</p>
-            <p>Wind: 6.67 MPH</p>
-            <p>Humidity</p>
-        </div>  
-        <div class="five-day-box"> 
-            <h3>Current City Data</h3>
-            <p>Temp: 74.01</p>
-            <p>Wind: 6.67 MPH</p>
-            <p>Humidity</p>
-        </div>  
-        <div class="five-day-box"> 
-            <h3>Current City Data</h3>
-            <p>Temp: 74.01</p>
-            <p>Wind: 6.67 MPH</p>
-            <p>Humidity</p>
-        </div>  
+        <div class="five-day-box">
+          <h3>Current City Data</h3>
+          <p>Temp: 74.01</p>
+          <p>Wind: 6.67 MPH</p>
+          <p>Humidity</p>
+        </div>
+        <div class="five-day-box">
+          <h3>Current City Data</h3>
+          <p>Temp: 74.01</p>
+          <p>Wind: 6.67 MPH</p>
+          <p>Humidity</p>
+        </div>
+        <div class="five-day-box">
+          <h3>Current City Data</h3>
+          <p>Temp: 74.01</p>
+          <p>Wind: 6.67 MPH</p>
+          <p>Humidity</p>
+        </div>
+        <div class="five-day-box">
+          <h3>Current City Data</h3>
+          <p>Temp: 74.01</p>
+          <p>Wind: 6.67 MPH</p>
+          <p>Humidity</p>
+        </div>
+        <div class="five-day-box">
+          <h3>Current City Data</h3>
+          <p>Temp: 74.01</p>
+          <p>Wind: 6.67 MPH</p>
+          <p>Humidity</p>
+        </div>
       </div>
     </div>
   </body>
