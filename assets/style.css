@@ -21,6 +21,15 @@
     color: white;
     border: none;
 }
+#search-button:hover{
+    background-color: rgb(2, 105, 143);
+
+}
+
+#search-button:active{
+    background-color: rgb(4, 46, 61);
+
+}
 button{
     margin: 0 auto;
     display: block;
@@ -55,9 +64,18 @@ display: flex;
 .five-day-box{
     border: solid 2px black;
     margin-right: 18px;
-    margin-left:2px ;
+    margin-left:8px ;
     padding: 4px;
     color: white;
     background-color: rgba(0, 0, 128, 0.72);
     font-family: 'Merriweather Sans';
+    
+}
+
+button:hover{
+    background-color: rgba(128, 128, 128, 0.563);
+}
+
+button:active{
+    background-color: rgba(0, 0, 0, 0);
 }
