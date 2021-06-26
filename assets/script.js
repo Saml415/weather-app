@@ -1,7 +1,11 @@
-var currentData = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124"
+var currentData = "https://api.openweathermap.org/data/2.5/onecall?lat=51.49&lon=-0.13&exclude=hourly,daily&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124"
+var fiveData = "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124"
+var currentEl = $('.current-city')
+var fiveEl = $('.five-day-box')
+
 var currentBox = document.querySelector('current-city')
 
-console.log(currentData)
+console.log(fiveEl)
 
 fetch(currentData)
 .then(function(response){
@@ -24,6 +28,43 @@ fetch(currentData)
     
 
 });
+
+
+fetch(fiveData)
+.then(function(response){
+    return response.json()
+})
+.then(function(data){
+    console.log(data)
+    currentEl.find('h2').text(data.city.name)
+    fiveEl.find('h3').text(data.city.name)
+    fiveEl.find('p').eq(0).text("Temp: " + data.list[0].main.temp + " °F")
+    fiveEl.find('p').eq(1).text("Wind: " + data.list[0].wind.speed + " MPH")
+    fiveEl.find('p').eq(2).text("Humidity: " + data.list[0].main.humidity + " %")
+
+    fiveEl.find('p').eq(3).text("Temp: " + data.list[1].main.temp + " °F")
+    fiveEl.find('p').eq(4).text("Wind: " + data.list[1].wind.speed + " MPH")
+    fiveEl.find('p').eq(5).text("Humidity: " + data.list[1].main.humidity + " %")
+
+    
+    fiveEl.find('p').eq(6).text("Temp: " + data.list[2].main.temp + " °F")
+    fiveEl.find('p').eq(7).text("Wind: " + data.list[2].wind.speed + " MPH")
+    fiveEl.find('p').eq(8).text("Humidity: " + data.list[2].main.humidity + " %")
+
+    fiveEl.find('p').eq(9).text("Temp: " + data.list[3].main.temp + " °F")
+    fiveEl.find('p').eq(10).text("Wind: " + data.list[3].wind.speed + " MPH")
+    fiveEl.find('p').eq(11).text("Humidity: " + data.list[3].main.humidity + " %")
+
+    fiveEl.find('p').eq(12).text("Temp: " + data.list[4].main.temp + " °F")
+    fiveEl.find('p').eq(13).text("Wind: " + data.list[4].wind.speed + " MPH")
+    fiveEl.find('p').eq(14).text("Humidity: " + data.list[4].main.humidity + " %")
+   
+   
+
+ 
+    
+})
+
 
 // fetch weather data 
 // get data attributes for popular cities (gray buttons)
