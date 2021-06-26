@@ -1,4 +1,5 @@
-var currentData = "https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid=6be0da943ba57ed80b521a05be5ca124"
+var currentData = "https://api.openweathermap.org/data/2.5/weather?q=Seoul&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124"
+var currentBox = document.querySelector('current-city')
 
 console.log(currentData)
 
@@ -6,6 +7,22 @@ fetch(currentData)
 .then(function(response){
     return response.json()
 })
+.then(function(data){
+    console.log(data)
+    console.log(data.main.temp)
+    $('.current-city h2').text(data.name + data.weather[0].icon)
+    $('p').eq(0).text("Temp: " + data.main.temp + " °F")
+    $('p').eq(1).text("Wind: " + data.wind.speed + " MPH")
+    $('p').eq(2).text("Humidity: " + data.main.humidity + " %")
+    
+
+    
+    
+   
+   
+    
+
+});
 
 // fetch weather data 
 // get data attributes for popular cities (gray buttons)
