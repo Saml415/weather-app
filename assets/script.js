@@ -9,7 +9,13 @@ var currentBox = document.querySelector("current-city");
 
 console.log(fiveEl);
 
-$(document).on("click", "#search-button", function () {
+var citySearch = $("#city-search");
+function handleFormSubmit(event) {
+  event.preventDefault();
+  var city = $('input[name="city-search"]').val();
+  console.log(city);
+
+  // $(document).on("click", "#search-button", function () {
   console.log("Hello");
 
   fetch(currentData)
@@ -18,7 +24,6 @@ $(document).on("click", "#search-button", function () {
     })
     .then(function (data) {
       console.log(data);
-      console.log(data.current.humidity);
 
       $("p")
         .eq(0)
@@ -33,7 +38,7 @@ $(document).on("click", "#search-button", function () {
         .eq(3)
         .text("UV Index: " + data.current.uvi);
     });
- 
+
   fetch(fiveData)
     .then(function (response) {
       return response.json();
@@ -107,7 +112,10 @@ $(document).on("click", "#search-button", function () {
         .eq(14)
         .text("Humidity: " + data.list[4].main.humidity + " %");
     });
-});
+}
+
+citySearch.on("submit", handleFormSubmit);
+// });
 // fetch weather data
 // get data attributes for popular cities (gray buttons)
 
