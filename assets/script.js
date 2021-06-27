@@ -13,9 +13,9 @@ var citySearch = $("#city-search");
 function handleFormSubmit(event) {
   event.preventDefault();
   var city = $('input[name="city-search"]').val();
-  console.log(city);
+  fiveData =
+  "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
 
-  // $(document).on("click", "#search-button", function () {
   console.log("Hello");
 
   fetch(currentData)
@@ -115,7 +115,7 @@ function handleFormSubmit(event) {
 }
 
 citySearch.on("submit", handleFormSubmit);
-// });
+
 // fetch weather data
 // get data attributes for popular cities (gray buttons)
 
