@@ -1,10 +1,11 @@
-var currentData =
-  "https://api.openweathermap.org/data/2.5/onecall?lat=51.49&lon=-0.13&exclude=hourly,daily&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
+// var currentData =
+//   "https://api.openweathermap.org/data/2.5/onecall?lat=51.49&lon=-0.13&exclude=hourly,daily&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
+
 var fiveData =
   "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
 var currentEl = $(".current-city");
 var fiveEl = $(".five-day-box");
-
+var cityHistory = $(".button-list")
 var currentBox = document.querySelector("current-city");
 
 console.log(fiveEl);
@@ -12,11 +13,16 @@ console.log(fiveEl);
 var citySearch = $("#city-search");
 function handleFormSubmit(event) {
   event.preventDefault();
-  var city = $('input[name="city-search"]').val();
+  var city = $("input").val();
+  ["city-search"];
+  var currentData =
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
   fiveData =
-  "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
-
-  console.log("Hello");
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    city +
+    "&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
 
   fetch(currentData)
     .then(function (response) {
@@ -27,16 +33,16 @@ function handleFormSubmit(event) {
 
       $("p")
         .eq(0)
-        .text("Temp: " + data.current.temp + " °F");
+        .text("Temp: " + data.main.temp + " °F");
       $("p")
         .eq(1)
-        .text("Wind: " + data.current.wind_speed + " MPH");
+        .text("Wind: " + data.wind.speed + " MPH");
       $("p")
         .eq(2)
-        .text("Humidity: " + data.current.humidity + " %");
-      $("p")
-        .eq(3)
-        .text("UV Index: " + data.current.uvi);
+        .text("Humidity: " + data.main.humidity + " %");
+      // $("p")
+      //   .eq(3)
+      //   .text("UV Index: " + data.current.uvi);
     });
 
   fetch(fiveData)
@@ -111,6 +117,17 @@ function handleFormSubmit(event) {
         .find("p")
         .eq(14)
         .text("Humidity: " + data.list[33].main.humidity + " %");
+
+      localStorage.setItem('city', JSON.stringify(data.city.name));
+      var button = document.createElement('button');
+      button.textContent = city;
+
+      cityHistory.append(button)
+
+
+
+
+
     });
 }
 
