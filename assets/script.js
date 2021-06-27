@@ -5,9 +5,9 @@ var fiveData =
   "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
 var currentEl = $(".current-city");
 var fiveEl = $(".five-day-box");
-var cityHistory = $(".button-list")
+var cityHistory = $(".button-list");
 var currentBox = document.querySelector("current-city");
-
+var button = document.createElement("button");
 console.log(fiveEl);
 
 var citySearch = $("#city-search");
@@ -31,13 +31,16 @@ function handleFormSubmit(event) {
     .then(function (data) {
       console.log(data);
 
-      $("p")
+      currentEl
+        .find("p")
         .eq(0)
         .text("Temp: " + data.main.temp + " °F");
-      $("p")
+      currentEl
+        .find("p")
         .eq(1)
         .text("Wind: " + data.wind.speed + " MPH");
-      $("p")
+      currentEl
+        .find("p")
         .eq(2)
         .text("Humidity: " + data.main.humidity + " %");
       // $("p")
@@ -53,6 +56,7 @@ function handleFormSubmit(event) {
       console.log(data);
       currentEl.find("h2").text(data.city.name);
       fiveEl.find("h3").text(data.city.name);
+
       fiveEl
         .find("p")
         .eq(0)
@@ -118,16 +122,86 @@ function handleFormSubmit(event) {
         .eq(14)
         .text("Humidity: " + data.list[33].main.humidity + " %");
 
-      localStorage.setItem('city', JSON.stringify(data.city.name));
-      var button = document.createElement('button');
+      localStorage.setItem("city", JSON.stringify(data.city.name));
+      button = document.createElement("button");
+      button.setAttribute("data-city", city);
       button.textContent = city;
+      cityHistory.append(button);
 
-      cityHistory.append(button)
+      button.addEventListener("click", function (event) {
+        var element = event.target;
 
+        if (element.matches("button") === true) {
+          currentEl.find("h2").text(data.city.name);
+          fiveEl.find("h3").text(data.city.name);
+          
 
+          fiveEl
+            .find("p")
+            .eq(0)
+            .text("Temp: " + data.list[1].main.temp + " °F");
+          fiveEl
+            .find("p")
+            .eq(1)
+            .text("Wind: " + data.list[1].wind.speed + " MPH");
+          fiveEl
+            .find("p")
+            .eq(2)
+            .text("Humidity: " + data.list[1].main.humidity + " %");
 
+          fiveEl
+            .find("p")
+            .eq(3)
+            .text("Temp: " + data.list[9].main.temp + " °F");
+          fiveEl
+            .find("p")
+            .eq(4)
+            .text("Wind: " + data.list[9].wind.speed + " MPH");
+          fiveEl
+            .find("p")
+            .eq(5)
+            .text("Humidity: " + data.list[9].main.humidity + " %");
 
+          fiveEl
+            .find("p")
+            .eq(6)
+            .text("Temp: " + data.list[17].main.temp + " °F");
+          fiveEl
+            .find("p")
+            .eq(7)
+            .text("Wind: " + data.list[17].wind.speed + " MPH");
+          fiveEl
+            .find("p")
+            .eq(8)
+            .text("Humidity: " + data.list[17].main.humidity + " %");
 
+          fiveEl
+            .find("p")
+            .eq(9)
+            .text("Temp: " + data.list[25].main.temp + " °F");
+          fiveEl
+            .find("p")
+            .eq(10)
+            .text("Wind: " + data.list[25].wind.speed + " MPH");
+          fiveEl
+            .find("p")
+            .eq(11)
+            .text("Humidity: " + data.list[25].main.humidity + " %");
+
+          fiveEl
+            .find("p")
+            .eq(12)
+            .text("Temp: " + data.list[33].main.temp + " °F");
+          fiveEl
+            .find("p")
+            .eq(13)
+            .text("Wind: " + data.list[33].wind.speed + " MPH");
+          fiveEl
+            .find("p")
+            .eq(14)
+            .text("Humidity: " + data.list[33].main.humidity + " %");
+        }
+      });
     });
 }
 
