@@ -1,72 +1,114 @@
-var currentData = "https://api.openweathermap.org/data/2.5/onecall?lat=51.49&lon=-0.13&exclude=hourly,daily&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124"
-var fiveData = "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124"
-var currentEl = $('.current-city')
-var fiveEl = $('.five-day-box')
+var currentData =
+  "https://api.openweathermap.org/data/2.5/onecall?lat=51.49&lon=-0.13&exclude=hourly,daily&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
+var fiveData =
+  "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
+var currentEl = $(".current-city");
+var fiveEl = $(".five-day-box");
 
-var currentBox = document.querySelector('current-city')
+var currentBox = document.querySelector("current-city");
 
-console.log(fiveEl)
+console.log(fiveEl);
 
-fetch(currentData)
-.then(function(response){
-    return response.json()
-})
-.then(function(data){
-    console.log(data)
-    console.log(data.current.humidity)
+$(document).on("click", "#search-button", function () {
+  console.log("Hello");
 
-    $('p').eq(0).text("Temp: " + data.current.temp + " °F")
-    $('p').eq(1).text("Wind: " + data.current.wind_speed + " MPH")
-    $('p').eq(2).text("Humidity: " + data.current.humidity + " %")
-    $('p').eq(3).text("UV Index: " + data.current.uvi)
-    
+  fetch(currentData)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      console.log(data.current.humidity);
 
-    
-    
-   
-   
-    
-
-});
-
-
-fetch(fiveData)
-.then(function(response){
-    return response.json()
-})
-.then(function(data){
-    console.log(data)
-    currentEl.find('h2').text(data.city.name)
-    fiveEl.find('h3').text(data.city.name)
-    fiveEl.find('p').eq(0).text("Temp: " + data.list[0].main.temp + " °F")
-    fiveEl.find('p').eq(1).text("Wind: " + data.list[0].wind.speed + " MPH")
-    fiveEl.find('p').eq(2).text("Humidity: " + data.list[0].main.humidity + " %")
-
-    fiveEl.find('p').eq(3).text("Temp: " + data.list[1].main.temp + " °F")
-    fiveEl.find('p').eq(4).text("Wind: " + data.list[1].wind.speed + " MPH")
-    fiveEl.find('p').eq(5).text("Humidity: " + data.list[1].main.humidity + " %")
-
-    
-    fiveEl.find('p').eq(6).text("Temp: " + data.list[2].main.temp + " °F")
-    fiveEl.find('p').eq(7).text("Wind: " + data.list[2].wind.speed + " MPH")
-    fiveEl.find('p').eq(8).text("Humidity: " + data.list[2].main.humidity + " %")
-
-    fiveEl.find('p').eq(9).text("Temp: " + data.list[3].main.temp + " °F")
-    fiveEl.find('p').eq(10).text("Wind: " + data.list[3].wind.speed + " MPH")
-    fiveEl.find('p').eq(11).text("Humidity: " + data.list[3].main.humidity + " %")
-
-    fiveEl.find('p').eq(12).text("Temp: " + data.list[4].main.temp + " °F")
-    fiveEl.find('p').eq(13).text("Wind: " + data.list[4].wind.speed + " MPH")
-    fiveEl.find('p').eq(14).text("Humidity: " + data.list[4].main.humidity + " %")
-   
-   
-
+      $("p")
+        .eq(0)
+        .text("Temp: " + data.current.temp + " °F");
+      $("p")
+        .eq(1)
+        .text("Wind: " + data.current.wind_speed + " MPH");
+      $("p")
+        .eq(2)
+        .text("Humidity: " + data.current.humidity + " %");
+      $("p")
+        .eq(3)
+        .text("UV Index: " + data.current.uvi);
+    });
  
-    
-})
+  fetch(fiveData)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      currentEl.find("h2").text(data.city.name);
+      fiveEl.find("h3").text(data.city.name);
+      fiveEl
+        .find("p")
+        .eq(0)
+        .text("Temp: " + data.list[0].main.temp + " °F");
+      fiveEl
+        .find("p")
+        .eq(1)
+        .text("Wind: " + data.list[0].wind.speed + " MPH");
+      fiveEl
+        .find("p")
+        .eq(2)
+        .text("Humidity: " + data.list[0].main.humidity + " %");
 
+      fiveEl
+        .find("p")
+        .eq(3)
+        .text("Temp: " + data.list[1].main.temp + " °F");
+      fiveEl
+        .find("p")
+        .eq(4)
+        .text("Wind: " + data.list[1].wind.speed + " MPH");
+      fiveEl
+        .find("p")
+        .eq(5)
+        .text("Humidity: " + data.list[1].main.humidity + " %");
 
-// fetch weather data 
+      fiveEl
+        .find("p")
+        .eq(6)
+        .text("Temp: " + data.list[2].main.temp + " °F");
+      fiveEl
+        .find("p")
+        .eq(7)
+        .text("Wind: " + data.list[2].wind.speed + " MPH");
+      fiveEl
+        .find("p")
+        .eq(8)
+        .text("Humidity: " + data.list[2].main.humidity + " %");
+
+      fiveEl
+        .find("p")
+        .eq(9)
+        .text("Temp: " + data.list[3].main.temp + " °F");
+      fiveEl
+        .find("p")
+        .eq(10)
+        .text("Wind: " + data.list[3].wind.speed + " MPH");
+      fiveEl
+        .find("p")
+        .eq(11)
+        .text("Humidity: " + data.list[3].main.humidity + " %");
+
+      fiveEl
+        .find("p")
+        .eq(12)
+        .text("Temp: " + data.list[4].main.temp + " °F");
+      fiveEl
+        .find("p")
+        .eq(13)
+        .text("Wind: " + data.list[4].wind.speed + " MPH");
+      fiveEl
+        .find("p")
+        .eq(14)
+        .text("Humidity: " + data.list[4].main.humidity + " %");
+    });
+});
+// fetch weather data
 // get data attributes for popular cities (gray buttons)
 
 // Type any city
@@ -74,7 +116,7 @@ fetch(fiveData)
 // Get user input from the search box
 // Send API fetch request
 // If city does not exist display message that city does not exist
-// If weather results are in the response 
+// If weather results are in the response
 // Locate Current Weather City data from API within current-city div
 //Locate 5 day forecast data from API within five-day-list div
 // Display Current Weather City data from API within current-city div
