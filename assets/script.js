@@ -50,67 +50,67 @@ function handleFormSubmit(event) {
       fiveEl
         .find("p")
         .eq(0)
-        .text("Temp: " + data.list[0].main.temp + " °F");
-      fiveEl
-        .find("p")
-        .eq(1)
-        .text("Wind: " + data.list[0].wind.speed + " MPH");
-      fiveEl
-        .find("p")
-        .eq(2)
-        .text("Humidity: " + data.list[0].main.humidity + " %");
-
-      fiveEl
-        .find("p")
-        .eq(3)
         .text("Temp: " + data.list[1].main.temp + " °F");
       fiveEl
         .find("p")
-        .eq(4)
+        .eq(1)
         .text("Wind: " + data.list[1].wind.speed + " MPH");
       fiveEl
         .find("p")
-        .eq(5)
+        .eq(2)
         .text("Humidity: " + data.list[1].main.humidity + " %");
 
       fiveEl
         .find("p")
+        .eq(3)
+        .text("Temp: " + data.list[9].main.temp + " °F");
+      fiveEl
+        .find("p")
+        .eq(4)
+        .text("Wind: " + data.list[9].wind.speed + " MPH");
+      fiveEl
+        .find("p")
+        .eq(5)
+        .text("Humidity: " + data.list[9].main.humidity + " %");
+
+      fiveEl
+        .find("p")
         .eq(6)
-        .text("Temp: " + data.list[2].main.temp + " °F");
+        .text("Temp: " + data.list[17].main.temp + " °F");
       fiveEl
         .find("p")
         .eq(7)
-        .text("Wind: " + data.list[2].wind.speed + " MPH");
+        .text("Wind: " + data.list[17].wind.speed + " MPH");
       fiveEl
         .find("p")
         .eq(8)
-        .text("Humidity: " + data.list[2].main.humidity + " %");
+        .text("Humidity: " + data.list[17].main.humidity + " %");
 
       fiveEl
         .find("p")
         .eq(9)
-        .text("Temp: " + data.list[3].main.temp + " °F");
+        .text("Temp: " + data.list[25].main.temp + " °F");
       fiveEl
         .find("p")
         .eq(10)
-        .text("Wind: " + data.list[3].wind.speed + " MPH");
+        .text("Wind: " + data.list[25].wind.speed + " MPH");
       fiveEl
         .find("p")
         .eq(11)
-        .text("Humidity: " + data.list[3].main.humidity + " %");
+        .text("Humidity: " + data.list[25].main.humidity + " %");
 
       fiveEl
         .find("p")
         .eq(12)
-        .text("Temp: " + data.list[4].main.temp + " °F");
+        .text("Temp: " + data.list[33].main.temp + " °F");
       fiveEl
         .find("p")
         .eq(13)
-        .text("Wind: " + data.list[4].wind.speed + " MPH");
+        .text("Wind: " + data.list[33].wind.speed + " MPH");
       fiveEl
         .find("p")
         .eq(14)
-        .text("Humidity: " + data.list[4].main.humidity + " %");
+        .text("Humidity: " + data.list[33].main.humidity + " %");
     });
 }
 
