@@ -1,5 +1,4 @@
-// var currentData =
-//   "https://api.openweathermap.org/data/2.5/onecall?lat=51.49&lon=-0.13&exclude=hourly,daily&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
+// var openData = "https://api.openweathermap.org/data/2.5/onecall?lat=51.49&lon=-0.13&exclude=hourly,daily&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
 
 var fiveData =
   "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
@@ -8,12 +7,12 @@ var fiveEl = $(".five-day-box");
 var cityHistory = $(".button-list");
 var currentBox = document.querySelector("current-city");
 var button = document.createElement("button");
-console.log(fiveEl);
 
 var citySearch = $("#city-search");
 function handleFormSubmit(event) {
   event.preventDefault();
   var city = $("input").val();
+  
   ["city-search"];
   var currentData =
     "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -43,9 +42,14 @@ function handleFormSubmit(event) {
         .find("p")
         .eq(2)
         .text("Humidity: " + data.main.humidity + " %");
-      // $("p")
-      //   .eq(3)
-      //   .text("UV Index: " + data.current.uvi);
+
+      button.addEventListener("click", function (event) {
+        var element = event.target;
+
+        if (element.matches("button") === true) {
+          
+        }
+      });
     });
 
   fetch(fiveData)
@@ -133,8 +137,8 @@ function handleFormSubmit(event) {
 
         if (element.matches("button") === true) {
           currentEl.find("h2").text(data.city.name);
+
           fiveEl.find("h3").text(data.city.name);
-          
 
           fiveEl
             .find("p")
