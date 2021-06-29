@@ -118,7 +118,7 @@ function fetchWeather(city) {
       button.setAttribute("class", "place-btn")
       button.textContent = city;
       cityHistory.append(button);
-
+      console.log(currentData)
      
     });
 }
