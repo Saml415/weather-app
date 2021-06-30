@@ -1,5 +1,3 @@
-
-
 var fiveData =
   "https://api.openweathermap.org/data/2.5/forecast?q=London&units=imperial&appid=6be0da943ba57ed80b521a05be5ca124";
 var currentEl = $(".current-city");
@@ -36,17 +34,25 @@ function fetchWeather(city) {
         .find("p")
         .eq(2)
         .text("Humidity: " + data.main.humidity + " %");
+      var iconUrl =
+        "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
 
-     
+      var iconImg = $("<img>").attr({
+        src: iconUrl,
+        alt: data.weather[0].description,
+      }); 
+      $(".current-city").append(iconImg)
+      currentEl.find("h2").text(data.name);
+      
     });
   fetch(fiveData)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      currentEl.find("h2").text(data.city.name);
-      fiveEl.find("h3").text(data.city.name);
       
+      fiveEl.find("h3").text(data.city.name);
+
       fiveEl
         .find("p")
         .eq(0)
@@ -113,33 +119,26 @@ function fetchWeather(city) {
         .text("Humidity: " + data.list[33].main.humidity + " %");
 
       localStorage.setItem("city", JSON.stringify(data.city.name));
+
       button = document.createElement("button");
       button.setAttribute("data-city", city);
-      button.setAttribute("class", "place-btn")
+      button.setAttribute("class", "place-btn");
       button.textContent = city;
       cityHistory.append(button);
-      console.log(currentData)
-     
+      console.log(currentData);
     });
 }
-function handleButtonClick(){
- city = $(this).attr('data-city')
- fetchWeather(city)
-}
-
+function handleButtonClick() {
+  city = $(this).attr("data-city");
   
-
-
-
-
+  fetchWeather(city);
+}
 
 function handleFormSubmit(event) {
   event.preventDefault();
   var city = $("input").val();
-
-  fetchWeather(city)
+  
+  fetchWeather(city);
 }
-cityHistory.on("click", ".place-btn", handleButtonClick)
+cityHistory.on("click", ".place-btn", handleButtonClick);
 citySearch.on("submit", handleFormSubmit);
-
-
