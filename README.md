@@ -10,7 +10,8 @@ This read is for a dynamic weather app. When a user inputs a city they will be p
 
 2. The Assets folder conatins the stylesheet and the javascript. (Style.css and Script.js)
 
-![Capture](https://user-images.githubusercontent.com/81829274/123728538-37c78680-d848-11eb-9d99-9d57c7e4b008.PNG)
+![Capture](https://user-images.githubusercontent.com/81829274/124044185-b09e1e00-d9c1-11eb-8d25-30293c47b787.PNG)
+
 
 
 saml415.github.io/weather-app/
