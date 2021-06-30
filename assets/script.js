@@ -50,8 +50,14 @@ function fetchWeather(city) {
       return response.json();
     })
     .then(function (data) {
+      var iconUrl =
+        "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+
+      var iconImg = $("<img>").attr({
+        src: iconUrl,
+        alt: data.weather[0].description,
+      }); 
       
-      fiveEl.find("h3").text(data.city.name);
 
       fiveEl
         .find("p")
