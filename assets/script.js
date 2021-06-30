@@ -40,10 +40,9 @@ function fetchWeather(city) {
       var iconImg = $("<img>").attr({
         src: iconUrl,
         alt: data.weather[0].description,
-      }); 
-      $(".current-city").append(iconImg)
+      });
+      $(".current-city").append(iconImg);
       currentEl.find("h2").text(data.name);
-      
     });
   fetch(fiveData)
     .then(function (response) {
@@ -51,14 +50,58 @@ function fetchWeather(city) {
     })
     .then(function (data) {
       var iconUrl =
-        "http://openweathermap.org/img/wn/" + data.list[0].weather.icon + "@2x.png";
+        "http://openweathermap.org/img/wn/" +
+        data.list[0].weather[0].icon +
+        "@2x.png";
 
       var iconImg = $("<img>").attr({
         src: iconUrl,
         alt: data.list[0].description,
-      }); 
-      
-      $("five-day-box").append(iconImg)
+      });
+
+      var iconUrl1 =
+        "http://openweathermap.org/img/wn/" +
+        data.list[1].weather[0].icon +
+        "@2x.png";
+
+      var iconImg1 = $("<img>").attr({
+        src: iconUrl1,
+        alt: data.list[1].description,
+      });
+
+      var iconUrl2 =
+        "http://openweathermap.org/img/wn/" +
+        data.list[2].weather[0].icon +
+        "@2x.png";
+
+      var iconImg2 = $("<img>").attr({
+        src: iconUrl2,
+        alt: data.list[2].description,
+      });
+
+      var iconUrl3 =
+        "http://openweathermap.org/img/wn/" +
+        data.list[3].weather[0].icon +
+        "@2x.png";
+
+      var iconImg3 = $("<img>").attr({
+        src: iconUrl3,
+        alt: data.list[3].description,
+      });
+
+      var iconUrl4 =
+        "http://openweathermap.org/img/wn/" +
+        data.list[4].weather[0].icon +
+        "@2x.png";
+
+      var iconImg4 = $("<img>").attr({
+        src: iconUrl4,
+        alt: data.list[4].description,
+      });
+
+      // $(".five-day-box").find("p").eq(0).append(iconImg)
+      fiveEl.find("h3").text(data.city.name);
+
       fiveEl
         .find("p")
         .eq(0)
@@ -70,7 +113,8 @@ function fetchWeather(city) {
       fiveEl
         .find("p")
         .eq(2)
-        .text("Humidity: " + data.list[1].main.humidity + " %");
+        .text("Humidity: " + data.list[1].main.humidity + " %")
+        .append(iconImg);
 
       fiveEl
         .find("p")
@@ -83,7 +127,8 @@ function fetchWeather(city) {
       fiveEl
         .find("p")
         .eq(5)
-        .text("Humidity: " + data.list[9].main.humidity + " %");
+        .text("Humidity: " + data.list[9].main.humidity + " %")
+        .append(iconImg1);
 
       fiveEl
         .find("p")
@@ -96,7 +141,8 @@ function fetchWeather(city) {
       fiveEl
         .find("p")
         .eq(8)
-        .text("Humidity: " + data.list[17].main.humidity + " %");
+        .text("Humidity: " + data.list[17].main.humidity + " %")
+        .append(iconImg2);
 
       fiveEl
         .find("p")
@@ -109,7 +155,8 @@ function fetchWeather(city) {
       fiveEl
         .find("p")
         .eq(11)
-        .text("Humidity: " + data.list[25].main.humidity + " %");
+        .text("Humidity: " + data.list[25].main.humidity + " %")
+        .append(iconImg3);
 
       fiveEl
         .find("p")
@@ -122,7 +169,8 @@ function fetchWeather(city) {
       fiveEl
         .find("p")
         .eq(14)
-        .text("Humidity: " + data.list[33].main.humidity + " %");
+        .text("Humidity: " + data.list[33].main.humidity + " %")
+        .append(iconImg4);
 
       localStorage.setItem("city", JSON.stringify(data.city.name));
 
@@ -136,14 +184,14 @@ function fetchWeather(city) {
 }
 function handleButtonClick() {
   city = $(this).attr("data-city");
-  
+
   fetchWeather(city);
 }
 
 function handleFormSubmit(event) {
   event.preventDefault();
   var city = $("input").val();
-  
+
   fetchWeather(city);
 }
 cityHistory.on("click", ".place-btn", handleButtonClick);
