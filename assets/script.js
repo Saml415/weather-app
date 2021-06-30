@@ -51,14 +51,14 @@ function fetchWeather(city) {
     })
     .then(function (data) {
       var iconUrl =
-        "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+        "http://openweathermap.org/img/wn/" + data.list[0].weather.icon + "@2x.png";
 
       var iconImg = $("<img>").attr({
         src: iconUrl,
-        alt: data.weather[0].description,
+        alt: data.list[0].description,
       }); 
       
-
+      $("five-day-box").append(iconImg)
       fiveEl
         .find("p")
         .eq(0)
@@ -131,7 +131,7 @@ function fetchWeather(city) {
       button.setAttribute("class", "place-btn");
       button.textContent = city;
       cityHistory.append(button);
-      console.log(currentData);
+      console.log(fiveData);
     });
 }
 function handleButtonClick() {
